@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magic Spell</title>
+    <style>
+        body {
+        	
+        	
+            background-image: url("fantasy-2847724_1280.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+      	
+        	
+        	
+        	
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        .converter {
+            text-align: center;
+        }
+        
+        .input-label {
+            font-weight: bold;
+        }
+        
+        .binary-output {
+            margin-top: 10px;
+            font-size: 14px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .green-border {
+            border: 5px solid green;
+        }
+        .button1 {
+        
+         
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h2>🔓 the secret by finding the binary for the code begins</h2>
+        <div>
+            <label for="input-text" class="input-label">Enter The programmers Magic Spell 🪄</label>
+            <br><br>
+            <textarea id="input-text" rows="5" cols="50" oninput="checkInput()"></textarea>
+        </div>
+        <br>
+        <button class="button1" type="button" onclick="convertToBinary()">Abracadabra</button><br>
+        <div class="binary-output" id="binary-output"></div><br><br>
+        <h>Hint : Green circle will guide you <h>
+    </div>
+
+    <script>
+        function checkInput() {
+            var inputText = document.getElementById("input-text").value;
+            var converter = document.querySelector(".converter");
+            
+            if (inputText === "Hello World") {
+                converter.classList.add("green-border");
+            } else {
+                converter.classList.remove("green-border");
+            }
+        }
+        
+        function convertToBinary() {
+            var inputText = document.getElementById("input-text").value;
+            var binaryOutput = document.getElementById("binary-output");
+            
+            var binaryResult = "";
+            for (var i = 0; i < inputText.length; i++) {
+                var charCode = inputText.charCodeAt(i);
+                var binaryChar = charCode.toString(2).padStart(8, '0');
+                binaryResult += binaryChar + " ";
+            }
+            
+            binaryOutput.textContent = binaryResult;
+        }
+    </script>
+</body>
+</html>
+
